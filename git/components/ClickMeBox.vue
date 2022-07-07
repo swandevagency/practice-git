@@ -23,7 +23,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #box {
   height: 28rem;
   border: 1px solid rgb(236, 236, 236);
