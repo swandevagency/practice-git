@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import ClickMeButton from '../components/ClickMeButton.vue'
+import ClickMeButton from './ClickMeButton.vue'
 import History from './History.vue'
 export default {
   data() {
