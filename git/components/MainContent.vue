@@ -2,7 +2,7 @@
   <div class="main-content-component-wrapper" id="mainContent">
     <ClickMeBox :show-click-me="showClickMe" @click="clickMeClicked" :user-name="userName" @set-history="setHistory" />
     <NameInput  @submit="submitNameInput" />
-    <StartButton @click="startGame" />
+    <StartButton v-if="showStart" @click="startGame" />
   </div>
 </template>
 
