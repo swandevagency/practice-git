@@ -7,14 +7,24 @@
 <script>
 export default {
   data() {
-    return {}
+    return {
+    }
+  },
+  mounted() {
+    let clickMe = document.getElementById('clickMe')
+    clickMe.style.top = this.getRandomNumber(0, this.clientHeight - 50) + 'px'
+    clickMe.style.left = this.getRandomNumber(0, this.clientWidth - 160) + 'px'
   },
   props: {
     clientWidth: Number,
     clientHeight: Number,
   },
   methods: {
-    clickMeClicked() {},
+    getRandomNumber(min, max) {
+      return Math.random() * (max - min) + min
+    },
+    clickMeClicked() {
+    },
   },
 }
 </script>
