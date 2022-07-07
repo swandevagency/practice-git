@@ -7,10 +7,15 @@
 <script>
 export default {
   data() {
-    return {}
+    return {
+      showClickMe: false,
+    }
   },
   methods: {
-    startGame() {},
+    startGame() {
+      this.showClickMe = true
+      this.$emit('click', this.showClickMe)
+    },
   },
 }
 </script>
