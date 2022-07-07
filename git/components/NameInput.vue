@@ -1,15 +1,30 @@
 <template>
   <div>
-    <form>
+    <form @submit.prevent="submitName">
       <label for="name">Name:</label>
-      <input type="text" id="name" />
+      <input type="text" id="name" v-model="nameInput" />
       <button>Submit</button>
     </form>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      nameInput: '',
+      userName: '',
+    }
+  },
+  methods: {
+    submitName() {
+      if (this.nameInput === '') return
+      this.userName = this.nameInput
+      this.nameInput = ''
+      this.$emit('submit', this.userName)
+    },
+  },
+}
 </script>
 
 <style scoped>
