@@ -1,13 +1,14 @@
 <template>
   <div id="box">
     <ClickMeButton
+      v-if="showClickMe"
       :client-width="clientWidth"
       :client-height="clientHeight"
       @click="clickMeClickedSec"
     />
     <div id="history">
-      <ul>
-        <History />
+      <ul v-for="result in userArr" :key="result.id">
+        <History :result-object="result" />
       </ul>
     </div>
   </div>
