@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button id="clickMe">Click Me!</button>
+    <button id="clickMe" @click="clickMeClicked">Click Me!</button>
   </div>
 </template>
 
@@ -12,6 +12,9 @@ export default {
   props: {
     clientWidth: Number,
     clientHeight: Number,
+  },
+  methods: {
+    clickMeClicked() {},
   },
 }
 </script>
