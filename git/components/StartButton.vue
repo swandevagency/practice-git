@@ -1,12 +1,17 @@
 <template>
   <div>
-    <button>Start</button>
+    <button @click="startGame">Start</button>
   </div>
 </template>
 
 <script>
 export default {
-
+  data() {
+    return {}
+  },
+  methods: {
+    startGame() {},
+  },
 }
 </script>
 
