@@ -1,6 +1,10 @@
 <template>
   <div id="box">
-    <ClickMeButton />
+    <ClickMeButton
+      :client-width="clientWidth"
+      :client-height="clientHeight"
+      @click="clickMeClickedSec"
+    />
     <div id="history">
       <ul>
         <History />
@@ -14,16 +18,29 @@ import ClickMeButton from '../components/ClickMeButton.vue'
 import History from './History.vue'
 export default {
   data() {
-    return {}
+    return {
+      clientWidth: 0,
+      clientHeight: 0,
+    }
+  },
+  mounted() {
+    const box = document.getElementById('box')
+    this.clientWidth = box.clientWidth
+    this.clientHeight = box.clientHeight
   },
   components: {
     ClickMeButton,
     History,
   },
+  methods: {
+    clickMeClickedSec(value) {
+      
+    },
+  },
 }
 </script>
 
-<style>
+<style scoped>
 #box {
   height: 28rem;
   border: 1px solid rgb(236, 236, 236);
