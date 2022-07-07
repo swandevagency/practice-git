@@ -1,6 +1,10 @@
 <template>
   <div id="box">
-    <ClickMeButton :client-width="clientWidth" :client-height="clientHeight" />
+    <ClickMeButton
+      :client-width="clientWidth"
+      :client-height="clientHeight"
+      @click="clickMeClickedSec"
+    />
     <div id="history">
       <ul>
         <History />
@@ -27,6 +31,11 @@ export default {
   components: {
     ClickMeButton,
     History,
+  },
+  methods: {
+    clickMeClickedSec(value) {
+      
+    },
   },
 }
 </script>
