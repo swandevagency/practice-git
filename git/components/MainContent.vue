@@ -1,8 +1,8 @@
 <template>
   <div class="main-content-component-wrapper" id="mainContent">
-    <ClickMeBox />
-    <NameInput />
-    <StartButton />
+    <ClickMeBox :show-click-me="showClickMe" @click="clickMeClicked" :user-name="userName" @set-history="setHistory" />
+    <NameInput  @submit="submitNameInput" />
+    <StartButton @click="startGame" />
   </div>
 </template>
 
@@ -12,12 +12,34 @@ import NameInput from '../components/NameInput.vue'
 import StartButton from '../components/StartButton.vue'
 export default {
   data() {
-    return {}
+    return {
+      showClickMe: false,
+      showStart: false,
+      showResult: false,
+      userName: ''
+    }
   },
   components: {
     ClickMeBox,
     NameInput,
     StartButton,
+  },
+  methods: {
+    startGame(value) {
+      this.showClickMe = value
+    },
+    clickMeClicked(value) {
+      this.showClickMe = false
+      this.showResult = true
+      this.showStart = false
+    },
+    submitNameInput(value) {
+      this.userName = value
+      this.showStart = true
+    },
+    setHistory(value) {
+      this.showResult = value
+    }
   },
 }
 </script>

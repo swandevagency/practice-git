@@ -21,9 +21,21 @@ export default {
     return {
       clientWidth: 0,
       clientHeight: 0,
+      id: 0,
+      userArr: [],
+      setHistory: false,
     }
   },
   mounted() {
+    if (localStorage.results) {
+      const storedResult = JSON.parse(localStorage.getItem('results'))
+      for (let i = 0; i < storedResult.length; i++) {
+        this.userArr.push(storedResult[i])
+      }
+      if (storedResult[storedResult.length - 1].id !== 0) {
+        this.id = storedResult[storedResult.length - 1].id
+      }
+    }
     const box = document.getElementById('box')
     this.clientWidth = box.clientWidth
     this.clientHeight = box.clientHeight
@@ -32,9 +44,19 @@ export default {
     ClickMeButton,
     History,
   },
+  props: {
+    showClickMe: Boolean,
+    userName: String,
+  },
   methods: {
     clickMeClickedSec(value) {
-      
+      this.userArr.push({ id: this.id++, userName: this.userName, sec: value })
+      this.storeResult()
+      this.$emit('setHistory', this.setHistory)
+      this.$emit('click', this.userArr)
+    },
+    storeResult() {
+      localStorage.setItem('results', JSON.stringify(this.userArr))
     },
   },
 }
