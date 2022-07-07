@@ -1,6 +1,6 @@
 <template>
   <div id="box">
-    <ClickMeButton />
+    <ClickMeButton :client-width="clientWidth" :client-height="clientHeight" />
     <div id="history">
       <ul>
         <History />
@@ -14,7 +14,15 @@ import ClickMeButton from '../components/ClickMeButton.vue'
 import History from './History.vue'
 export default {
   data() {
-    return {}
+    return {
+      clientWidth: 0,
+      clientHeight: 0,
+    }
+  },
+  mounted() {
+    const box = document.getElementById('box')
+    this.clientWidth = box.clientWidth
+    this.clientHeight = box.clientHeight
   },
   components: {
     ClickMeButton,

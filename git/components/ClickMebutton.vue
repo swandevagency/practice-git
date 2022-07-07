@@ -9,6 +9,10 @@ export default {
   data() {
     return {}
   },
+  props: {
+    clientWidth: Number,
+    clientHeight: Number,
+  },
 }
 </script>
 
